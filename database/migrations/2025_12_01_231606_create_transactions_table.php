@@ -9,13 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('total_price');
             $table->foreignId('signature_id')->constrained();
+            $table->enum('status', ['pendent', 'canceled', 'completed']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use App\Enums\TransactionStatusEnum;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
 {
-    protected $fillable = ['total_price', 'signature_id'];
+    use HasFactory, SoftDeletes;
+    protected $fillable = ['total_price', 'signature_id', 'status'];
     protected $casts = [
         "status" => TransactionStatusEnum::class,
     ];

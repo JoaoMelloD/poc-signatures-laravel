@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('signature_histories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('signature_id')->constrained();
-            $table->timestamp('updated_at');
-            $table->foreignId('old_plan_id')->nullable();
-            $table->enum('oldStatus', ['activated', 'disabled']);
+            $table->integer('old_plan_id')->nullable();
+            $table->enum('old_status', ['activated', 'disabled']);
             $table->timestamps();
         });
     }

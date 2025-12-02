@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('plan_id')->constrained();
             $table->enum('status', ['actived', 'disabled']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

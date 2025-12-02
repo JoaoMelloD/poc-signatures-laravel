@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Plan extends Model
 {
-    protected $fillable = ['name', 'description', 'price'];
+    use HasFactory, SoftDeletes;
+    protected $fillable = ['name', 'short_description', 'price'];
 }
